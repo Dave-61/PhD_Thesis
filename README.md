@@ -5,7 +5,7 @@ As the last piece of my PhD dissertation, I extended the proposed CVaR methodolo
 This repository contains the following algorithms which have been developed to solve the (stochastic) integer programming models:
 - Algorithms to generate the following matrixes from raw data:
 	- Accident probability 
-	- And accident consequence 
+	- Accident consequence 
 	- Distance between yards
 	- Train services (routes)
 	- Hazmat shipmen volumes between yards
