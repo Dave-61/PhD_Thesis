@@ -10,7 +10,7 @@ This repository contains the following algorithms which have been developed to s
 	- Train services (routes)
 	- Hazmat shipmen volumes between yards
 - Conditional value-at-risk (CVaR) algorithm
-- Dijkstra’s Shortest path algorithms
+- Tailored shortest path algorithms based on Dijkstra’s algorithm
 - Lagrangian relaxation method
 - Subgradient optimization algorithm
 
