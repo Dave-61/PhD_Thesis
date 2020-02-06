@@ -2,7 +2,7 @@ Rail hazmat accidents rarely happen (*low-probability* incidents), but if they d
 
 As the last piece of my PhD dissertation, I extended the proposed CVaR methodology developed earlier for a single rail hazmat shipment, single origin-destination pair, to *multiple* rail hazmat shipments. This aspect leads to a harder class of problems that involve *multi-commodity* and *multiple* origin-destination hazmat routing decisions. On the other hand, it may happen that certain links and yards of the railroad network tend to be *overloaded* with hazmat traffic and risk. This becomes crucial when certain populated zones are exposed to an intolerable level of risk resulting from the routing decisions. To overcome this issue, I also promote *equity* in the spatial distribution of risk throughout the railroad network. Therefore, the main problem is to find minimum risk routes, as measured by CVaR methodology, while limiting and equitably spreading the risk in any zone where the railroad network is embedded. This work is under review in *Computers & Operations Research*. <br>
 
-This repository contains the following algorithms which have been developed to solve the (stochastic) integer programming models:
+This repository contains the following algorithms which have been developed to solve the proposed (stochastic) integer programming models:
 - Algorithms to generate the following matrixes from raw data:
 	- Accident probability 
 	- Accident consequence 
