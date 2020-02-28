@@ -13,4 +13,4 @@ This repository contains the following **algorithms** which have been developed 
 - Tailored shortest path algorithms based on Dijkstra’s algorithm
 - Lagrangian relaxation method
 - Subgradient optimization algorithm
-
+- A greedy heuristic algorithm (for k-minimal CVaR paths)
