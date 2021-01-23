@@ -1,23 +1,23 @@
 package PhD3;
 
 class Initial_uMatrix {
-    public static void GenerateIuM () {
+    public static double[][] GenerateIuM () {
 
         ReadXlsxFile objReadXlsxFile = new ReadXlsxFile();
 
         double[][] ALPE; // Arc Length & Population Exposure
-        ALPE = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        ALPE = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(1).setRow(1,123).setCell(1,167)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(ALPE);
 
         double[][] initial_uYardsInTs; // initial u values for yards in train services
-        initial_uYardsInTs = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        initial_uYardsInTs = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(6).setRow(1,25).setCell(0,13)
                 .createArrayMatrix();
 
         double[][] initial_uArcsInTs; // initial u values for arcs in train services
-        initial_uArcsInTs = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        initial_uArcsInTs = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(7).setRow(1,83).setCell(0,6) // for PhD3Data: rowEnd is 81 & for PhD3Data_2: rowEnd is 83 !!!!!!!
                 .createArrayMatrix();
 
@@ -75,6 +75,8 @@ class Initial_uMatrix {
         System.out.println("counter uMatrix (u >= 0): " + counter_initial_uMatrix);
 
         WriteXlsxFile objWriteXlsxFile = new WriteXlsxFile();
-        objWriteXlsxFile.getDataAndsetSheet(initial_uMatrix,"uMatrix").setFileName("uMatrix.xlsx");
+        objWriteXlsxFile.getDataAndsetSheet(initial_uMatrix,"uMatrix").setFileName("uMatrix_Initial.xlsx");
+
+        return initial_uMatrix;
     }
 }

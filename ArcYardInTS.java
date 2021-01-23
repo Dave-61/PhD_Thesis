@@ -11,7 +11,7 @@ class ArcYardInTS {
 
         ReadXlsxFile objReadXlsxFile = new ReadXlsxFile();
         double[][] ALPE; // Arc Length & Population Exposure
-        ALPE = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
+        ALPE = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
                 .setSheet(1).setRow(1,2).setCell(1,167)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(ALPE);

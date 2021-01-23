@@ -12,13 +12,13 @@ class APandACforArc {
         ReadXlsxFile objReadXlsxFile = new ReadXlsxFile();
 
         double[][] ALPE; // Arc Length & Population Exposure
-        ALPE = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
+        ALPE = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
                 .setSheet(1).setRow(1,123).setCell(1,167)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(ALPE);
 
         double[][] YPE; // Yard Population Exposure
-        YPE = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
+        YPE = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
                 .setSheet(4).setRow(1,121).setCell(1,25)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(YPE);

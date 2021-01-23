@@ -14,13 +14,13 @@ class A_Exe {
         ReadXlsxFile objReadXlsxFile = new ReadXlsxFile();
 
         double[][] Dmnd; // This matrix (FROM/TO) shows the origin yard, destination yard, and the number of hazmat rails to be shipped between them in the network
-        Dmnd = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        Dmnd = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(0).setRow(0,25).setCell(0,25)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(Dmnd);
 
         double[][] ALPE; // Arc Length & Population Exposure
-        ALPE = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        ALPE = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(1).setRow(1,123).setCell(1,167)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(ALPE);
@@ -76,12 +76,12 @@ class A_Exe {
         System.out.println("Building matrices AP_N1 and AC_N1 is done :)");
 
         double[][] deltaYardsInTs; // delta values for yards in train services
-        deltaYardsInTs = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        deltaYardsInTs = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(11).setRow(1,25).setCell(0,13)
                 .createArrayMatrix();
 
         double[][] deltaArcsInTs; // delta values for arcs in train services
-        deltaArcsInTs = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        deltaArcsInTs = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(12).setRow(1,83).setCell(0,6) // for PhD3Data: rowEnd is 81 & for PhD3Data_2: rowEnd is 83 !!!!!!!
                 .createArrayMatrix();
 

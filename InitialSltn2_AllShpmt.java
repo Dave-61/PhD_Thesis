@@ -7,6 +7,7 @@ import java.util.List;
 
 public class InitialSltn2_AllShpmt {
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
 
         double alpha = 0.999999;
         int numTrainServices = 31;
@@ -17,19 +18,19 @@ public class InitialSltn2_AllShpmt {
         ReadXlsxFile objReadXlsxFile = new ReadXlsxFile();
 
         double[][] Dmnd; // This matrix (FROM/TO) shows the origin yard, destination yard, and the number of hazmat rails to be shipped between them in the network
-        Dmnd = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        Dmnd = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(0).setRow(0,25).setCell(0,25)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(Dmnd);
 
         double[][] ALPE; // Arc Length & Population Exposure
-        ALPE = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        ALPE = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(1).setRow(1,123).setCell(1,167)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(ALPE);
 
         double[][] YPE; // Yard Population Exposure
-        YPE = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        YPE = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(4).setRow(1,121).setCell(1,25)
                 .createArrayMatrix();
         //objReadXlsxFile.showArrayMatrix(YPE);
@@ -79,12 +80,12 @@ public class InitialSltn2_AllShpmt {
         System.out.println("Building matrices AP_N1 and AC_N1 is done :)");
 
         double[][] deltaYardsInTs; // delta values for yards in train services
-        deltaYardsInTs = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        deltaYardsInTs = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(11).setRow(1,25).setCell(0,13)
                 .createArrayMatrix();
 
         double[][] deltaArcsInTs; // delta values for arcs in train services
-        deltaArcsInTs = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
+        deltaArcsInTs = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data_2.xlsx")
                 .setSheet(12).setRow(1,83).setCell(0,6) // for PhD3Data: rowEnd is 81 & for PhD3Data_2: rowEnd is 83 !!!!!!!
                 .createArrayMatrix();
 
@@ -148,8 +149,8 @@ public class InitialSltn2_AllShpmt {
                     CR[i][j] = 0; // replaced -1 with 0 in the potential yards and arcs of a route
 
         List<Pair<Double, Pair<Double, Double>>> sortedDmnd = new ArrayList<>(); // (Nv, (Ov, Dv))
-        for (int i = 1; i < Dmnd.length; i++)    // i < Dmnd.length !!!!!!!!!!!!!!!!!     OR     i < 3
-            for (int j = 1; j < Dmnd.length; j++)
+        for (int i = 1; i < 14; i++)    // i < Dmnd.length !!!!!!!!!!!!!!!!!     OR     i < 2  // original values: i < Dmnd.length
+            for (int j = 1; j < 26; j++)                                                       // original values: j < Dmnd.length
                 if (Dmnd[i][j] != -1 && Dmnd[i][j] != 0)
                     sortedDmnd.add(new Pair<>(Dmnd[i][j], new Pair<>(Dmnd[i][0], Dmnd[0][j]))); // (Nv, (Ov, Dv))
 
@@ -259,5 +260,11 @@ public class InitialSltn2_AllShpmt {
         if (DijkstraInfeasible)
             System.exit(1);
 
+        System.out.println();
+        long endTime = System.nanoTime();
+        long totalTime = endTime - startTime; // in nanoseconds
+        int totalTime_m = (int) ((totalTime/1000000000)/60);
+        int totalTime_s = (int) ((totalTime/1000000000)%60);
+        System.out.println("Running time of the program: " + totalTime_m + " min, " + totalTime_s + " secs.");
     }
 }

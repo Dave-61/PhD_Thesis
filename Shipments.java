@@ -11,7 +11,7 @@ public class Shipments {
 
         ReadXlsxFile objReadXlsxFile = new ReadXlsxFile();
         double[][] Dmnd; // Arc Length & Population Exposure
-        Dmnd = objReadXlsxFile.setFilePath("D:\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
+        Dmnd = objReadXlsxFile.setFilePath("E:\\PhD & MSc\\0 PhD Dissertation\\3. CVaR + Equity\\Coding\\PhD3Data.xlsx")
                 .setSheet(0).setRow(0, 25).setCell(0, 25)
                 .createArrayMatrix();
         // objReadXlsxFile.showArrayMatrix(Dmnd);

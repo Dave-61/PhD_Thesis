@@ -13,8 +13,8 @@ class LgnFcnAlg2_AllShpmt {        // Pair<double[], double[][]>   // Object[] /
         List<Double> all_Nv = new ArrayList<>();
 
         int counter = 0;
-        for (int i = 1; i < Dmnd.length; i++) {   // i < Dmnd.length !!!!!!!!!!!!!!!!!     OR     i < 3
-            for (int j = 1; j < Dmnd.length; j++) {
+        for (int i = 1; i < Dmnd.length; i++) {   // i < Dmnd.length !!!!!!!!!!!!!!!!!     OR     i < 3  // original values: i < Dmnd.length
+            for (int j = 1; j < Dmnd.length; j++) {                                                      // original values: j < Dmnd.length
                 if (Dmnd[i][j] != -1 && Dmnd[i][j] != 0) {
                     counter ++;
                     double Ov = Dmnd[i][0];
@@ -47,11 +47,20 @@ class LgnFcnAlg2_AllShpmt {        // Pair<double[], double[][]>   // Object[] /
         }
         System.out.println("Summation of C_r* + f_r* over all shipments = " + totalC_rPlusf_r);
 
+        System.out.println();
+        WriteXlsxFile objWriteXlsxFile = new WriteXlsxFile();
+        objWriteXlsxFile.getDataAndsetSheet(delta,"deltaMatrix").setFileName("deltaMatrix.xlsx");
+//        WriteXlsxFile objWriteXlsxFile2 = new WriteXlsxFile();
+//        objWriteXlsxFile2.getDataAndsetSheet(uMatrix,"uMatrix").setFileName("uMatrix_used.xlsx");
+
         double sum_deltaTIMESu = 0.0;
         for (int i = 2; i < delta.length; i++)
             for (int j = 2; j < delta.length; j++)
                 if (delta[i][j] >= 0)
                     sum_deltaTIMESu += delta[i][j] * uMatrix[i][j];
+
+        System.out.println();
+        System.out.println("Summation of deltaXu over all yards and arcs = " + sum_deltaTIMESu);
 
         double Lu = totalC_rPlusf_r - sum_deltaTIMESu;
         System.out.println();
